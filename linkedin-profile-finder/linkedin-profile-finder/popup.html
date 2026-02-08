@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Profile Finder</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>LinkedIn Profile Finder</h1>
+    </div>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Loading job details...</p>
+    </div>
+
+    <div id="error" class="error hidden">
+      <p id="error-message"></p>
+    </div>
+
+    <div id="job-info" class="job-info hidden">
+      <h2 id="job-title"></h2>
+      <p id="company-name"></p>
+    </div>
+
+    <div id="instructions" class="instructions">
+      <p>Open a LinkedIn job posting to see profiles of:</p>
+      <ul>
+        <li>People in similar roles at the company</li>
+        <li>Recruiters and HR professionals</li>
+      </ul>
+    </div>
+
+    <div id="results" class="results hidden">
+      <button id="search-btn" class="search-btn">Find Profiles</button>
+      
+      <div id="profiles-container" class="profiles-container hidden">
+        <div class="important-note">
+          <p><strong>⚠️ Important:</strong> After clicking the links below, you MUST manually filter by company on LinkedIn!</p>
+          <p><strong>How to filter:</strong></p>
+          <ol>
+            <li>Click the link to open LinkedIn search</li>
+            <li>Look for "Current companies" filter on the left sidebar</li>
+            <li>Click on it and search for "<span id="company-filter-name"></span>"</li>
+            <li>Select the company from the dropdown</li>
+            <li>Now you'll see ONLY people from that company!</li>
+          </ol>
+        </div>
+
+        <div class="profile-section">
+          <h3>Same Role Profiles</h3>
+          <p class="section-description">Find people in similar roles:</p>
+          <div id="same-role-link"></div>
+        </div>
+
+        <div class="profile-section">
+          <h3>Recruiters & HR</h3>
+          <p class="section-description">Find recruiters and HR professionals:</p>
+          <div id="recruiters-link"></div>
+        </div>
+
+        <div class="info-note">
+          <p><strong>Why manual filtering?</strong> LinkedIn's company filter cannot be reliably set via URL due to their security measures. The manual filter gives you accurate, company-specific results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
